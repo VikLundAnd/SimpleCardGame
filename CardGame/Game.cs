@@ -96,11 +96,18 @@ namespace CardGame
 
         public override void run()
         {
-            Console.WriteLine("Game is now started!");
-            Console.Write("Dealing cards!");
+            Console.WriteLine("Game is now done!");
+            Console.WriteLine("The scores are as follows:");
 
-            Console.WriteLine("Cards have now been dealt!");
-            Console.WriteLine("Ready to see who is the winner?");
+            playerList.Sort((x, y) => x.total.CompareTo(y.total));
+            playerList = playerList.OrderByDescending(x => x.total).ToList();
+
+            foreach (var player_ in playerList)
+            {
+                Console.WriteLine(player_.name + "\t:\t" + player_.total);
+            }
+
+            Console.WriteLine("Thank you! Bye bye!");
             while (Console.ReadLine() != "y") ;
 
         }

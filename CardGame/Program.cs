@@ -10,11 +10,14 @@ namespace CardGame
     {
         static void Main(string[] args)
         {
-            preGame pG = new preGame(10);
+            preGame pG = new preGame(100);
             pG.run();
 
             duringGame dG = new duringGame(pG);
             dG.run();
+
+            postGame postG = new postGame(dG);
+            postG.run();
 
 
         }

@@ -15,6 +15,10 @@ namespace CardGame
             get { return hand_var; }
             set { hand_var = value; }
         }
+        public string name
+        {
+            get { return name_; }
+        }
 
         public Player(string name)
         {
@@ -25,7 +29,7 @@ namespace CardGame
         {
             get {
                 int value = 0;
-                foreach (var card in hand)
+                foreach (var card in hand_var)
                 {
                     value += card.Value;
                 }
