@@ -16,7 +16,7 @@ namespace CardGame
             duringGame dG = new duringGame(pG);
             dG.run();
 
-            postGame postG = new postGame(dG);
+            postGame_lowest postG = new postGame_lowest(dG);
             postG.run();
 
 

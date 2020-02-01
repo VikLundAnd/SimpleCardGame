@@ -8,11 +8,19 @@ namespace CardGame
 {
     class Player
     {
+        protected int cards_in_hand = 5; 
+
         private string name_;
         public List<Card> hand_var = new List<Card>(); 
         public List<Card> hand
         {
-            get { return hand_var; }
+            get { 
+                while (hand_var.Count > cards_in_hand)
+                {
+                    hand_var.RemoveAt(hand_var.Count - 1);
+                }
+                
+                return hand_var; }
             set { hand_var = value; }
         }
         public string name
@@ -42,5 +50,14 @@ namespace CardGame
             return hand;
         }
 
+    }
+
+    class weakPlayer : Player
+    {
+        weakPlayer(string name) 
+            :base(name)
+        {
+            cards_in_hand = 3;
+        }
     }
 }

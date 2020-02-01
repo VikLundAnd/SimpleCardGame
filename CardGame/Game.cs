@@ -113,4 +113,32 @@ namespace CardGame
         }
 
     }
+
+
+    class postGame_lowest : Game
+    {
+        public postGame_lowest(Game copy_me)
+            : base(copy_me)
+        {
+
+        }
+
+        public override void run()
+        {
+            Console.WriteLine("Game is now done!");
+            Console.WriteLine("The scores are as follows:");
+
+            playerList.Sort((x, y) => x.total.CompareTo(y.total));
+
+            foreach (var player_ in playerList)
+            {
+                Console.WriteLine(player_.name + "\t:\t" + player_.total);
+            }
+
+            Console.WriteLine("Thank you! Bye bye!");
+            while (Console.ReadLine() != "y") ;
+
+        }
+
+    }
 }

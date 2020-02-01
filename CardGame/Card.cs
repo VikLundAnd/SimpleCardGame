@@ -9,13 +9,26 @@ namespace CardGame
 
     class Card
     {
-        protected int mul;
+        private int mul;
         private int num;
-        protected string type;
+        private string type;
+
+        List<(int,string)> types_of_card = new List<(int, string)>
+        {
+            ( 1, "red" ),
+            ( 2, "blue" ),
+            ( 3, "green" ),
+            ( 4, "yellow" ),
+            ( 5, "gold" )
+        };
 
         public Card(Random rand)
         {
             num = rand.Next(1, 8);
+            int idx = rand.Next(1, types_of_card.Count);
+            mul = types_of_card[idx].Item1;
+            type = types_of_card[idx].Item2;
+
         }
 
         public int Value
@@ -28,41 +41,6 @@ namespace CardGame
         }
     }
 
-    class red_card : Card
-    {
-        public red_card(Random rand) : base(rand)
-        {
-            mul = 1;
-            type = "red";
-        }
-    }
-    class blue_card : Card
-    {
-        public blue_card(Random rand) : base(rand)
-        {
-            mul = 2;
-            type = "blue";
-
-        }
-    }
-    class green_card : Card
-    {
-        public green_card(Random rand) : base(rand)
-        {
-            mul = 3;
-            type = "green";
-
-        }
-    }
-    class yellow_card : Card
-    {
-        public yellow_card(Random rand) : base(rand)
-        {
-            mul = 4;
-            type = "yellow";
-
-        }
-    }
 
 }
 

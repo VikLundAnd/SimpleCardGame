@@ -17,26 +17,7 @@ namespace CardGame
         {
             for (int i = 0; i < size; i++)
             {
-                var temp_random = rand.Next(0, 3);
-                switch (temp_random)
-                {
-                    case 0:
-                        var card_red = new red_card(rand);
-                        card_stack.Push(card_red);
-                        break;
-                    case 1:
-                        var card_blue = new blue_card(rand);
-                        card_stack.Push(card_blue);
-                        break;
-                    case 2:
-                        var card_green = new green_card(rand);
-                        card_stack.Push(card_green);
-                        break;
-                    case 3:
-                        var card_yellow = new yellow_card(rand);
-                        card_stack.Push(card_yellow);
-                        break;
-                }
+                card_stack.Push(new Card(rand));
             }
         }
         public Card dealCard()
